@@ -186,10 +186,38 @@ class DatabaseMCPServer {
         throw new Error('Query is required and must be a string');
       }
 
-      // For now, return a placeholder response
-      // In a full implementation, this would execute the actual query
       const config = this.databases.get(connection)!;
 
+      // Actually execute the query for MySQL
+      if (config.type === 'mysql') {
+        const mysql = await import('mysql2/promise');
+        const connectionInstance = await mysql.createConnection({
+          host: config.host || 'localhost',
+          port: config.port || 3306,
+          user: config.username,
+          password: config.password,
+          database: config.database,
+        });
+
+        try {
+          const [results] = await connectionInstance.execute(query, parameters);
+          await connectionInstance.end();
+
+          return {
+            content: [
+              {
+                type: 'text',
+                text: `Query executed successfully on ${config.type} database '${connection}'.\nAffected rows: ${(results as any).affectedRows || 'N/A'}\nResults: ${JSON.stringify(results, null, 2)}`,
+              },
+            ],
+          };
+        } catch (queryError) {
+          await connectionInstance.end();
+          throw queryError;
+        }
+      }
+
+      // Fallback for other database types (still simulation)
       return {
         content: [
           {
