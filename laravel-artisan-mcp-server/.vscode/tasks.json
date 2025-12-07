@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Laravel Artisan MCP Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Start Laravel Artisan MCP Server",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"dist/index.js"
+			],
+			"dependsOn": "Build Laravel Artisan MCP Server",
+			"group": "test"
+		},
+		{
+			"label": "Watch Laravel Artisan MCP Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc-watch"
+			]
+		}
+	]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "hosting-management-mcp-server",
+  "version": "1.0.0",
+  "description": "A Domain and Hosting Management Model Context Protocol (MCP) server implementation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "hosting-management-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rimraf dist",
+    "prepare": "npm run build"
+  },
+  "keywords": ["mcp", "hosting", "domains", "cpanel", "dns", "ssl", "model-context-protocol"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "axios": "^1.6.2",
+    "node-cron": "^3.0.3",
+    "whois": "^2.13.7",
+    "dns2": "^2.1.0",
+    "ssl-checker": "^2.0.7",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/node-cron": "^3.0.11",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.2",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

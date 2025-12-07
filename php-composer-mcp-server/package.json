@@ -1,0 +1,39 @@
+{
+  "name": "php-composer-mcp-server",
+  "version": "1.0.0",
+  "description": "A PHP Composer Model Context Protocol (MCP) server implementation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "php-composer-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rimraf dist",
+    "prepare": "npm run build"
+  },
+  "keywords": ["mcp", "php", "composer", "dependencies", "packages", "model-context-protocol"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "child_process": "^1.0.2",
+    "fs-extra": "^11.2.0",
+    "semver": "^7.5.4",
+    "axios": "^1.6.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/semver": "^7.5.6",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.2",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,42 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build PHP Composer MCP Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Start PHP Composer MCP Server",
+			"type": "shell",
+			"command": "node",
+			"args": [
+				"dist/index.js"
+			],
+			"dependsOn": "Build PHP Composer MCP Server",
+			"group": "test"
+		},
+		{
+			"label": "Watch PHP Composer MCP Server",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [
+				"$tsc-watch"
+			]
+		}
+	]
+}

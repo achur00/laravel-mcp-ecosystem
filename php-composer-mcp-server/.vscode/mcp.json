@@ -1,0 +1,12 @@
+{
+  "servers": {
+    "php-composer-mcp-server": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}

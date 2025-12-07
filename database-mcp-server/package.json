@@ -1,0 +1,37 @@
+{
+  "name": "database-mcp-server",
+  "version": "1.0.0",
+  "description": "A Database Management Model Context Protocol (MCP) server implementation",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "database-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rimraf dist",
+    "prepare": "npm run build"
+  },
+  "keywords": ["mcp", "database", "mysql", "postgresql", "migrations", "model-context-protocol"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "mysql2": "^3.6.5",
+    "pg": "^8.11.3",
+    "better-sqlite3": "^9.2.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/pg": "^8.10.9",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.2",
+    "rimraf": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

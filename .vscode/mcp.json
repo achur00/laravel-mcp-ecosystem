@@ -1,0 +1,61 @@
+{
+  "servers": {
+    "laravel-auth": {
+      "type": "stdio", 
+      "command": "node",
+      "args": ["dist/index.js"],
+      "cwd": "laravel-auth-mcp-server",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "database": {
+      "type": "stdio",
+      "command": "node", 
+      "args": ["database-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "laravel-artisan": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["laravel-artisan-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "php-composer": {
+      "type": "stdio", 
+      "command": "node",
+      "args": ["php-composer-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "ssh-filemanager": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["ssh-filemanager-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "hosting-management": {
+      "type": "stdio",
+      "command": "node", 
+      "args": ["hosting-management-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "typespec": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["typespec-mcp-server/dist/index.js"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  }
+}
